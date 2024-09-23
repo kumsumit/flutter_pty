@@ -86,10 +86,8 @@ static LPWSTR build_environment(char **environment)
             environment_block_length += (int)strlen(environment[i]) + 1;
             i++;
         }
+        environment_block = malloc((environment_block_length + 1) * sizeof(WCHAR));
     }
-
-    environment_block = malloc((environment_block_length + 1) * sizeof(WCHAR));
-
     if (environment_block != NULL)
     {
         int i = 0;
