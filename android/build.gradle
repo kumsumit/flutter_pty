@@ -1,7 +1,7 @@
 // The Android Gradle Plugin builds the native code with the Android NDK.
 
-group 'com.example.flutter_pty'
-version '1.0'
+group = "com.example.flutter_pty"
+version = "1.0"
 
 buildscript {
     repositories {
@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         // The Android Gradle Plugin knows how to build native code with the NDK.
-        classpath 'com.android.tools.build:gradle:8.6.1'
+        classpath("com.android.tools.build:gradle:8.13.2")
     }
 }
 
@@ -22,23 +22,23 @@ rootProject.allprojects {
     }
 }
 
-apply plugin: 'com.android.library'
+apply plugin: "com.android.library"
 
 android {
     // Bumping the plugin compileSdkVersion requires all clients of this plugin
     // to bump the version in their app.
-    compileSdk 34
+    compileSdk 36
     if (project.android.hasProperty("namespace")) {
         namespace 'com.example.flutter_pty'
     }
     // Bumping the plugin ndkVersion requires all clients of this plugin to bump
     // the version in their app and to download a newer version of the NDK.
-    ndkVersion '27.1.12297006'
+    ndkVersion '29.0.14206865'
 
     // Invoke the shared CMake build with the Android Gradle Plugin.
     externalNativeBuild {
         cmake {
-            path "../src/CMakeLists.txt"
+            path = "../src/CMakeLists.txt"
 
             // The default CMake version for the Android Gradle Plugin is 3.10.2.
             // https://developer.android.com/studio/projects/install-ndk#vanilla_cmake
@@ -51,11 +51,11 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     defaultConfig {
-        minSdkVersion 21
+        minSdk 21
     }
 }
