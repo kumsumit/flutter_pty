@@ -19,7 +19,7 @@ android {
     compileSdk = 37
 
     // Latest NDK
-    ndkVersion = "30.0.14904198"
+    ndkVersion = "30.0.15729638"
 
     defaultConfig {
         minSdk = 24
